@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "ajit-inamdar-tech-terraform-backend"
+    bucket         = "sumyat-thandar-tech-terraform-backend"
     encrypt        = true
     key            = "terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "ajit-inamdar-tech-terraform-backend"
+    region         = "ap-northeast-1"
+    dynamodb_table = "terraform-lock"
   }
 }

@@ -2,7 +2,7 @@
 variable "region" {
   description = "Region code"
   type        = string
-  default     = "us-east-1"
+  default     = "ap-northeast-1"
 }
 
 # VPC variables
@@ -21,7 +21,7 @@ variable "vpc_cidr" {
 variable "vpc_azs" {
   description = "List of AZs"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  default     = ["ap-northeast-1a", "ap-northeast-1b", "ap-northeast-1c"]
 }
 
 variable "vpc_public_subnets" {
@@ -125,7 +125,7 @@ variable "asg_update_default_version" {
 variable "asg_image_id" {
   description = "Auto scaling group image id"
   type        = string
-  default     = "ami-026b57f3c383c2eec"
+  default     = "ami-0d5f5a4eaac1481cb"
 }
 
 variable "asg_instance_type" {
@@ -319,7 +319,7 @@ variable "rds_major_engine_version" {
 variable "rds_instance_class" {
   description = "Relational database service instance class"
   type        = string
-  default     = "db.t2.small"
+  default     = "db.t3.micro"
 }
 
 variable "rds_allocated_storage" {
@@ -331,7 +331,7 @@ variable "rds_allocated_storage" {
 variable "rds_max_allocated_storage" {
   description = "Relational database service max allocated storage"
   type        = number
-  default     = 100
+  default     = 20
 }
 
 variable "rds_db_name" {

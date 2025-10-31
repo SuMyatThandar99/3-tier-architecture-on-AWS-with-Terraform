@@ -71,8 +71,15 @@ module "asg" {
   wait_for_capacity_timeout = var.asg_wait_for_capacity_timeout
   health_check_type         = var.asg_health_check_type
   vpc_zone_identifier       = module.vpc.private_subnets
-  target_group_arns         = module.alb.target_group_arns
-  user_data                 = base64encode(local.user_data)
+  #target_group_arns         = module.alb.target_group_arns
+  
+  traffic_source_attachments = {
+    alb = {
+      traffic_source_identifier = module.alb.target_group_arns[0]  # ALB target group ARN
+      traffic_source_type       = "elbv2"
+    }
+  }
+  user_data = base64encode(local.user_data)
 
   # Launch template
   launch_template_name        = var.asg_launch_template_name
